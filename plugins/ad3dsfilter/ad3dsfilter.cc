@@ -431,7 +431,7 @@ PLUGIN_API bool plugin_uninit()
 
 PLUGIN_API const char * plugin_version()
 {
-   return "0.6.0";
+   return "0.8.0";
 }
 
 PLUGIN_API const char * plugin_mm3d_version()
