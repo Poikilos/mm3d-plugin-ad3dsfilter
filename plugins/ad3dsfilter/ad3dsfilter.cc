@@ -165,11 +165,14 @@ bool A3dsFilter::loadMesh( Lib3dsMesh * mesh )
                && face->points[2] < mesh->texels )
          {
             m_model->setTextureCoords( tri, 0, mesh->texelL[ face->points[0] ][0], 
-                  1.0f - mesh->texelL[ face->points[0] ][1] );
+//                  1.0f - mesh->texelL[ face->points[0] ][1] );
+                  mesh->texelL[ face->points[0] ][1] );
             m_model->setTextureCoords( tri, 1, mesh->texelL[ face->points[1] ][0], 
-                  1.0f - mesh->texelL[ face->points[1] ][1] );
+//                  1.0f - mesh->texelL[ face->points[1] ][1] );
+                  mesh->texelL[ face->points[1] ][1] );
             m_model->setTextureCoords( tri, 2, mesh->texelL[ face->points[2] ][0], 
-                  1.0f - mesh->texelL[ face->points[2] ][1] );
+//                  1.0f - mesh->texelL[ face->points[2] ][1] );
+                  mesh->texelL[ face->points[2] ][1] );
          }
 
          //glVertex3fv(mesh->pointL[face->points[i]].pos);
@@ -349,7 +352,7 @@ Model::ModelError A3dsFilter::readFile( Model * model, const char * const filena
    return Model::ERROR_NONE;
 }
 
-Model::ModelError A3dsFilter::writeFile( Model * model, const char * const filename )
+Model::ModelError A3dsFilter::writeFile( Model * model, const char * const filename, ModelFilter::Options * )
 {
    return Model::ERROR_UNSUPPORTED_OPERATION;
 }
@@ -428,7 +431,7 @@ PLUGIN_API bool plugin_uninit()
 
 PLUGIN_API const char * plugin_version()
 {
-   return "0.3.0";
+   return "0.4.0";
 }
 
 PLUGIN_API const char * plugin_mm3d_version()

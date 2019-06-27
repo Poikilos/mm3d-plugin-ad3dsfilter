@@ -41,7 +41,7 @@ class A3dsFilter : public ModelFilter
       virtual void release();
 
       Model::ModelError readFile( Model * model, const char * const filename );
-      Model::ModelError writeFile( Model * model, const char * const filename );
+      Model::ModelError writeFile( Model * model, const char * const filename, ModelFilter::Options * );
 
       bool canRead( const char * filename );
       bool canWrite( const char * filename );

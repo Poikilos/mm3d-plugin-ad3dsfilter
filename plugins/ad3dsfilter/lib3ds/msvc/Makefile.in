@@ -1,4 +1,4 @@
-# Makefile.in generated automatically by automake 1.4-p5 from Makefile.am
+# Makefile.in generated automatically by automake 1.4-p6 from Makefile.am
 
 # Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
 # This Makefile.in is free software; the Free Software Foundation
@@ -57,20 +57,20 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
+host_alias = @host_alias@
+host_triplet = @host@
 CC = @CC@
 DMALLOC_CFLAGS = @DMALLOC_CFLAGS@
 DMALLOC_LIBS = @DMALLOC_LIBS@
-GLUT_CFLAGS = @GLUT_CFLAGS@
-GLUT_HEADER_DIR = @GLUT_HEADER_DIR@
-GLUT_LIBS = @GLUT_LIBS@
-GLU_HEADER_DIR = @GLU_HEADER_DIR@
-GL_HEADER_DIR = @GL_HEADER_DIR@
+HAVE_LIB = @HAVE_LIB@
+LIB = @LIB@
 LIB3DS_BINARY_AGE = @LIB3DS_BINARY_AGE@
 LIB3DS_INTERFACE_AGE = @LIB3DS_INTERFACE_AGE@
 LIB3DS_MAJOR_VERSION = @LIB3DS_MAJOR_VERSION@
 LIB3DS_MICRO_VERSION = @LIB3DS_MICRO_VERSION@
 LIB3DS_MINOR_VERSION = @LIB3DS_MINOR_VERSION@
 LIB3DS_VERSION = @LIB3DS_VERSION@
+LTLIB = @LTLIB@
 LT_AGE = @LT_AGE@
 LT_CURRENT = @LT_CURRENT@
 LT_RELEASE = @LT_RELEASE@
@@ -80,15 +80,7 @@ PACKAGE = @PACKAGE@
 RANLIB = @RANLIB@
 VERSION = @VERSION@
 
-EXTRA_DIST = \
-  all.dsp \
-  lib3ds.dsw \
-  lib3ds_lib.dsp \
-  lib3ds_dll.dsp \
-  3dsdump.dsp \
-  3ds2m.dsp \
-  3ds2rib.dsp \
-  player.dsp
+EXTRA_DIST =    all.dsp   lib3ds.dsw   lib3ds_lib.dsp   lib3ds_dll.dsp   3dsdump.dsp   3ds2m.dsp   3ds2rib.dsp   player.dsp
 
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = ../config.h
@@ -98,7 +90,7 @@ DIST_COMMON =  Makefile.am Makefile.in
 
 DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
 
-TAR = gtar
+TAR = tar
 GZIP_ENV = --best
 all: all-redirect
 .SUFFIXES:
