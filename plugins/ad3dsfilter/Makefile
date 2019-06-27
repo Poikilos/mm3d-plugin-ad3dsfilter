@@ -2,7 +2,10 @@ PLUGINS =  \
 			  ad3dsfilter.so \
 
 LFLAGS = -g -Wall
-CFLAGS = -g -Wall -DMM3D_EDIT -I../../src -I../../src/libmm3d -I../.. -Ilib3ds -DPLUGIN
+CFLAGS = -g -Wall -DMM3D_EDIT -I../../src -I../../src/libmm3d -I../../src/mm3dcore -I../.. -Ilib3ds -DPLUGIN
+
+# Mac OS X flags. Uncomment the following line to compile on Mac OS X
+#LFLAGS = -g -Wall -undefined suppress -bundle -flat_namespace
 
 all: lib3ds_lib ${PLUGINS}
 	

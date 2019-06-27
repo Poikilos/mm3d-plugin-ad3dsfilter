@@ -195,7 +195,7 @@ void A3dsFilter::release()
    delete this;
 }
 
-Model::ModelError A3dsFilter::readFile( Model * model, const char * const filename )
+Model::ModelErrorE A3dsFilter::readFile( Model * model, const char * const filename )
 {
    /*
    if ( filename == NULL || filename[0] == '\0' )
@@ -352,7 +352,7 @@ Model::ModelError A3dsFilter::readFile( Model * model, const char * const filena
    return Model::ERROR_NONE;
 }
 
-Model::ModelError A3dsFilter::writeFile( Model * model, const char * const filename, ModelFilter::Options * )
+Model::ModelErrorE A3dsFilter::writeFile( Model * model, const char * const filename, ModelFilter::Options * )
 {
    return Model::ERROR_UNSUPPORTED_OPERATION;
 }
@@ -431,7 +431,7 @@ PLUGIN_API bool plugin_uninit()
 
 PLUGIN_API const char * plugin_version()
 {
-   return "0.4.0";
+   return "0.6.0";
 }
 
 PLUGIN_API const char * plugin_mm3d_version()
