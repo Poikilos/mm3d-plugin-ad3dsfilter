@@ -2,7 +2,7 @@ PLUGINS =  \
 			  ad3dsfilter.so \
 
 LFLAGS = -g -Wall
-CFLAGS = -g -Wall -I../../src -I../.. -Ilib3ds -DPLUGIN
+CFLAGS = -g -Wall -DMM3D_EDIT -I../../src -I../../src/libmm3d -I../.. -Ilib3ds -DPLUGIN
 
 all: lib3ds_lib ${PLUGINS}
 	
