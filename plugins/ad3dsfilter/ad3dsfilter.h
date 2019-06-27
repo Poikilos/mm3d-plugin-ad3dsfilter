@@ -45,6 +45,7 @@ class A3dsFilter : public ModelFilter
 
       bool canRead( const char * filename );
       bool canWrite( const char * filename );
+      bool canExport( const char * filename );
 
       bool isSupported( const char * filename );
 

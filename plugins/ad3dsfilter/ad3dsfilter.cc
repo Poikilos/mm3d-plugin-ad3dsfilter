@@ -371,6 +371,13 @@ bool A3dsFilter::canWrite( const char * filename )
    return false;
 }
 
+bool A3dsFilter::canExport( const char * filename )
+{
+   log_debug( "canWrite( %s )\n", filename );
+   log_debug( "  false\n" );
+   return false;
+}
+
 bool A3dsFilter::isSupported( const char * filename )
 {
    log_debug( "isSupported( %s )\n", filename );
@@ -431,7 +438,7 @@ PLUGIN_API bool plugin_uninit()
 
 PLUGIN_API const char * plugin_version()
 {
-   return "0.8.0";
+   return "0.8.1";
 }
 
 PLUGIN_API const char * plugin_mm3d_version()
