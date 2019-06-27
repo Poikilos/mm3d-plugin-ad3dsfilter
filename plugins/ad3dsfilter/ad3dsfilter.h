@@ -38,6 +38,8 @@ class A3dsFilter : public ModelFilter
       A3dsFilter();
       virtual ~A3dsFilter();
 
+      virtual void release();
+
       Model::ModelError readFile( Model * model, const char * const filename );
       Model::ModelError writeFile( Model * model, const char * const filename );
 

@@ -29,6 +29,8 @@
 #include "binutil.h"
 #include "misc.h"
 #include "filtermgr.h"
+#include "pluginapi.h"
+#include "version.h"
 
 #include "lib3ds/node.h"
 #include "lib3ds/material.h"
@@ -185,6 +187,11 @@ A3dsFilter::~A3dsFilter()
 {
 }
 
+void A3dsFilter::release()
+{
+   delete this;
+}
+
 Model::ModelError A3dsFilter::readFile( Model * model, const char * const filename )
 {
    /*
@@ -301,10 +308,14 @@ Model::ModelError A3dsFilter::readFile( Model * model, const char * const filena
             mat->m_type = Model::Material::MATTYPE_COLOR;
             mat->m_filename = "";
             mat->m_alphaFilename = "";
-            mat->m_color[0] = 255;
-            mat->m_color[1] = 255;
-            mat->m_color[2] = 255;
-            mat->m_color[3] = 255;
+
+            for ( unsigned i = 0; i < 4; i++ )
+            {
+               mat->m_color[i][0] = 255;
+               mat->m_color[i][1] = 255;
+               mat->m_color[i][2] = 255;
+               mat->m_color[i][3] = 255;
+            }
          }
 
          modelMaterials.push_back( mat );
@@ -394,7 +405,7 @@ list< string > A3dsFilter::getWriteTypes()
 // Plugin functions
 //------------------------------------------------------------------
 
-extern "C" bool plugin_init()
+PLUGIN_API bool plugin_init()
 {
    if ( s_filter == NULL )
    {
@@ -408,19 +419,24 @@ extern "C" bool plugin_init()
 
 // The filter manager will delete our registered filter.
 // We have no other cleanup to do
-extern "C" bool plugin_uninit()
+PLUGIN_API bool plugin_uninit()
 {
    s_filter = NULL; // FilterManager deletes filters
    log_debug( "3DS model filter plugin uninitialized\n" );
    return true;
 }
 
-extern "C" const char * plugin_version()
+PLUGIN_API const char * plugin_version()
 {
-   return "0.1.0";
+   return "0.3.0";
 }
 
-extern "C" const char * plugin_desc()
+PLUGIN_API const char * plugin_mm3d_version()
+{
+   return VERSION_STRING;
+}
+
+PLUGIN_API const char * plugin_desc()
 {
    return "3DS model filter";
 }
